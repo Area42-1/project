@@ -11,6 +11,6 @@
     "depends": ["base", "base_setup", "project"],
     "data": [
         'views/project_project_view.xml',
-        'wizard/res_config_settings.xml'
+        'views/res_config_settings.xml'
     ]
 }
