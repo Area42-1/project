@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+# Copyright 2023 - present kallard <contact@area42.fr>
+# License LGPLv3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.en.html).
+-->
+<odoo>
+    <record id="view_project_form_inherit" model="ir.ui.view">
+        <field name="name">project.project.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+         <field name="arch" type="xml">
+            <xpath expr="//page[@name='settings']" position="after">
+                <page string="GitLab">
+                    <group>
+                        <field name="gitlab_enabled" string="Use Gitlab in project"/>
+                        <field name="gitlab_url" string="Gitlab URL" attrs="{'invisible': [('gitlab_enabled', '=', False)]}"/>
+                        <field name="gitlab_token" string="Gitlab Token" attrs="{'invisible': [('gitlab_enabled', '=', False)]}"/>
+                        <field name="gitlab_project_id" string="Gitlab Project ID" attrs="{'invisible': [('gitlab_enabled', '=', False)]}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
