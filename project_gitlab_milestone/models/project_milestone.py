@@ -3,9 +3,7 @@
 
 from odoo import api, fields, models, exceptions
 import gitlab
-import logging
 
-_logger = logging.getLogger(__name__)
 
 def _gitlab_auth(milestone):
     url: str = milestone.project_id.gitlab_url
