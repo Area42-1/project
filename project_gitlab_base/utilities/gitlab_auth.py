@@ -2,9 +2,9 @@ from odoo import api, fields, models, exceptions
 import gitlab
 
 
-def gitlab_auth(milestone) -> gitlab.Gitlab:
-    url: str = milestone.project_id.gitlab_url
-    token: str = milestone.project_id.gitlab_token
+def gitlab_auth(data) -> gitlab.Gitlab:
+    url: str = data.project_id.gitlab_url
+    token: str = data.project_id.gitlab_token
 
     if not url:
         raise exceptions.UserError('Gitlab URL not set. Failed to create Gitlab milestone.')
