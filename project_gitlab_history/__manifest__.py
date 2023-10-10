@@ -8,7 +8,7 @@
     "category": "Project Management",
     "author": "Kévin Allard",
     "license": "AGPL-3",
-    "depends": ["project", "project_key", "project_gitlab_base"],
+    "depends": ["project_key", "project_gitlab_base"],
     "data": [
         "security/ir.model.access.csv",
         "views/project_task_view.xml",

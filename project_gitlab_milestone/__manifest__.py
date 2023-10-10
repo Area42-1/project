@@ -8,6 +8,6 @@
     "category": "Project Management",
     "author": "Kévin Allard",
     "license": "AGPL-3",
-    "depends": ["project", "project_milestone", "project_gitlab_base"],
+    "depends": ["project_milestone", "project_gitlab_base"],
     "data": []
 }
