@@ -2,8 +2,8 @@
 # License LGPLv3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.en.html).
 
 {
-    "name": "Gitlab Project Connector",
-    "summary": "Gitlab connector for projects",
+    "name": "Gitlab Project History Connector",
+    "summary": "Gitlab history connector for projects",
     "version": "14.0.1.0.0",
     "category": "Project Management",
     "author": "Kévin Allard",
