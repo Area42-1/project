@@ -4,7 +4,7 @@
 {
     "name": "Gitlab Project History Connector",
     "summary": "Gitlab history connector for projects",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Project Management",
     "author": "Kévin Allard",
     "license": "AGPL-3",

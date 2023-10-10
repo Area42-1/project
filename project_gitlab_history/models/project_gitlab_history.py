@@ -11,7 +11,7 @@ class GitlabCommit(models.Model):
 
     project_id = fields.Many2one(comodel_name='project.project', string='Project', required=True)
     task_id = fields.Many2one(comodel_name='project.task', string='Task', required=True)
-    commit_id = fields.Char(string='Commit ID', required=True)
+    commit_id = fields.Char(string='Commit ID', required=False)
     event_type = fields.Char(string='Event Type', required=True)
     date = fields.Datetime(string='Date', required=True)
     content = fields.Text(string='content', required=True)
