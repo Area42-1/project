@@ -3,26 +3,11 @@
 
 from odoo import api, fields, models, exceptions
 import gitlab
+from odoo.addons.project_gitlab_base.utilities.gitlab_auth import gitlab_auth
 
 
-def _gitlab_auth(milestone):
-    url: str = milestone.project_id.gitlab_url
-    token: str = milestone.project_id.gitlab_token
-
-    if not url:
-        raise exceptions.UserError('Gitlab URL not set. Failed to create Gitlab milestone.')
-
-    if not token:
-        raise exceptions.UserError('Gitlab token not set. Failed to create Gitlab milestone.')
-
-    gl = gitlab.Gitlab(url, private_token=token)
-    gl.auth()
-
-    return gl
-
-
-def _create_gitlab_milestone(milestone):
-    gl = _gitlab_auth(milestone)
+def _create_gitlab_milestone(milestone) -> None:
+    gl = gitlab_auth(milestone)
 
     if not gl:
         return
@@ -47,8 +32,8 @@ def _create_gitlab_milestone(milestone):
     milestone.gitlab_milestone_id = response.id
 
 
-def _update_gitlab_milestone(milestone):
-    gl = _gitlab_auth(milestone)
+def _update_gitlab_milestone(milestone) -> None:
+    gl = gitlab_auth(milestone)
 
     if not gl:
         return
@@ -75,8 +60,8 @@ def _update_gitlab_milestone(milestone):
     gitlab_milestone.save()
 
 
-def _delete_gitlab_milestone(milestone):
-    gl = _gitlab_auth(milestone)
+def _delete_gitlab_milestone(milestone) -> None:
+    gl = gitlab_auth(milestone)
 
     if not gl:
         return
