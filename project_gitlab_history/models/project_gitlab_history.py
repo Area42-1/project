@@ -16,3 +16,11 @@ class GitlabCommit(models.Model):
     date = fields.Datetime(string='Date', required=True)
     content = fields.Text(string='content', required=True)
     url = fields.Char(string='URL', required=True)
+    state = fields.Char()
+
+    def open_website_url(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': self.url,
+            'target': 'new',
+        }
