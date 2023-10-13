@@ -7,7 +7,7 @@ from odoo import fields, models
 class Project(models.Model):
     _inherit = 'project.project'
 
-    gitlab_enabled = fields.Boolean(string='Use Gitlab in project', default=False, track_visibility="onchange")
-    gitlab_url = fields.Char(string='Gitlab URL', default='https://gitlab.com', track_visibility="onchange")
-    gitlab_token = fields.Char(string='Gitlab Token', track_visibility="onchange")
-    gitlab_project_id = fields.Char(string='Gitlab Project ID', track_visibility="onchange")
+    gitlab_enabled = fields.Boolean(string='Use Gitlab in project', default=False, tracking=True)
+    gitlab_url = fields.Char(string='Gitlab URL', default='https://gitlab.com', tracking=True)
+    gitlab_token = fields.Char(string='Gitlab Token', tracking=True)
+    gitlab_project_id = fields.Char(string='Gitlab Project ID', tracking=True)

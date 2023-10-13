@@ -99,7 +99,6 @@ class ProjectMilestone(models.Model):
 
         return milestone
 
-    @api.model
     def write(self, vals):
         result = super().write(vals)
 
@@ -112,7 +111,6 @@ class ProjectMilestone(models.Model):
 
         return result
 
-    @api.model
     def unlink(self):
         for milestone in self:
             if not milestone.project_id.gitlab_enabled:

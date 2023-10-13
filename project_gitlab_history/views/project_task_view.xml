@@ -12,13 +12,17 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='extra_info']" position="before">
                 <page string="GitLab History">
-                    <field name="gitlab_commit_ids" widget="one2many_list" style="pointer-events:none;">
-                        <tree string="Gitlab History" editable="bottom" delete="false">
+                    <field name="gitlab_commit_ids">
+                        <tree string="Gitlab History">
                             <field name="commit_id" invisible="1"/>
                             <field name="date" string="Date"/>
+                            <field name="state" />
                             <field name="event_type" string="Event Type"/>
                             <field name="content" string="Content"/>
-                            <field name="url" widget="url"/>
+                            <field name="url" widget="url" invisible="1"/>
+                            <button name="open_website_url" tabindex="-1" type="object"
+                                attrs="{'invisible': [('url', '=', False)]}"
+                                icon="fa-external-link" class="oe_stat_button" title="Open url"/>
                         </tree>
                     </field>
                 </page>

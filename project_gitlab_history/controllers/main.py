@@ -86,7 +86,9 @@ class Main(http.Controller):
             return "No object attributes found"
 
         source_branch = object_attributes.get('source_branch')
-        task_code = source_branch.split('/')[1]
+        task_code = source_branch
+        if '/' in source_branch:
+            task_code = source_branch.split('/')[1]
 
         task = request.env['project.task'].sudo().search([('key', '=', task_code)], limit=1)
 
@@ -106,6 +108,7 @@ class Main(http.Controller):
             'date': date,
             'content': object_attributes.get('title'),
             'url': object_attributes.get('url'),
+            'state': object_attributes.get('state')
         }
 
         self._add_history(data)
