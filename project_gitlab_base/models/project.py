@@ -11,3 +11,12 @@ class Project(models.Model):
     gitlab_url = fields.Char(string='Gitlab URL', default='https://gitlab.com', tracking=True)
     gitlab_token = fields.Char(string='Gitlab Token', tracking=True)
     gitlab_project_id = fields.Char(string='Gitlab Project ID', tracking=True)
+
+
+class ProjectType(models.Model):
+    _inherit = 'project.type'
+
+    gitlab_enabled = fields.Boolean(string='Use Gitlab in project', default=False, tracking=True)
+    gitlab_url = fields.Char(string='Gitlab URL', default='https://gitlab.com', tracking=True)
+    gitlab_token = fields.Char(string='Gitlab Token', tracking=True)
+    gitlab_project_id = fields.Char(string='Gitlab Project ID', tracking=True)
