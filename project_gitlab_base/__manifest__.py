@@ -8,7 +8,7 @@
     "category": "Project Management",
     "author": "Kévin Allard",
     "license": "AGPL-3",
-    "depends": ["project"],
+    "depends": ["project", "project_category"],
     "data": [
         'views/project_project_view.xml',
         'views/res_config_settings.xml'

@@ -27,7 +27,10 @@ class Main(http.Controller):
 
         project = data.get('project', [])
 
-        project = request.env['project.project'].sudo().search([('gitlab_project_id', '=', project.get('id'))], limit=1)
+        project = request.env['project.type'].sudo().search([('gitlab_project_id', '=', project.get('id'))], limit=1)
+        if not project:
+            project = request.env['project.project'].sudo().search([('gitlab_project_id', '=', project.get('id'))],
+                                                                   limit=1)
 
         if not project:
             return "No project found"
@@ -54,7 +57,6 @@ class Main(http.Controller):
                     .strftime('%Y-%m-%d %H:%M:%S'))
 
             data = {
-                'project_id': project.id,
                 'task_id': task.id,
                 'commit_id': commit.get('id'),
                 'event_type': event_type.capitalize(),
@@ -75,7 +77,10 @@ class Main(http.Controller):
         if not project:
             return "No project found"
 
-        project = request.env['project.project'].sudo().search([('gitlab_project_id', '=', project.get('id'))], limit=1)
+        project = request.env['project.type'].sudo().search([('gitlab_project_id', '=', project.get('id'))], limit=1)
+        if not project:
+            project = request.env['project.project'].sudo().search([('gitlab_project_id', '=', project.get('id'))],
+                                                                   limit=1)
 
         if not project:
             return "No project found"
@@ -101,7 +106,6 @@ class Main(http.Controller):
                 .strftime('%Y-%m-%d %H:%M:%S'))
 
         data = {
-            'project_id': project.id,
             'task_id': task.id,
             'commit_id': object_attributes.get('merge_commit_sha'),
             'event_type': event_type,
